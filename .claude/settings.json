@@ -1,0 +1,10 @@
+{
+  "extraKnownMarketplaces": {
+    "enate-skills": {
+      "source": { "source": "github", "repo": "enateltd/factory-skills" }
+    }
+  },
+  "enabledPlugins": {
+    "enate-sdlc-factory@enate-skills": true
+  }
+}
