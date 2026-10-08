@@ -56,7 +56,7 @@ The only channel is the terminal. The single output line is the entire user expe
 ## Testing & the ratchet
 > Seeded from the Factory standard and trimmed by recorded decision (below). Full standard: <https://github.com/enateltd/factory-skills/blob/main/docs/testing-and-the-ratchet-standard.md> · the *why*: <https://github.com/enateltd/factory-skills/blob/main/docs/agentic-e2e-testing-principles.md>.
 
-- **Tier 1 only.** One MSTest test runs the built app as a real subprocess and asserts stdout is exactly the bytes `Hello World\n`, stderr is empty, and the exit code is 0. It runs on every commit on Windows, macOS and Linux.
+- **Tier 1 only.** One MSTest test runs the built app as a real subprocess and asserts stdout is exactly the bytes `Hello World\n`, stderr is empty, and the exit code is 0. It runs on every commit on the Linux CI agent; it is not run per commit on Windows or macOS (decision 2026-10-08).
 - **Assert on observable behaviour, not internal state.**
 - **The ratchet.** Any defect found outside the tests is fixed together with a Tier-1 test that would have caught it.
 - **Trimmed (decision 2026-10-08):** the Factory standard's LLM, Tier 2, Tier 3 and disposable-substrate rules. This Product has no LLM, no external substrate and no deployment; revisit this trim if any of that changes.

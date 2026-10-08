@@ -30,3 +30,13 @@ obj/
 *.user
 .vs/
 TestResults/
+
+# Spec/Plan docs are transient local artifacts written by /factory-brainstorming and
+# /factory-writing-plans, each of which pushes its own artefact's exact contents
+# directly into the ADO Feature's Custom.Specification /
+# Custom.ImplementationPlan fields on approval — ADO, not git, is the durable
+# copy on this repo.
+# Ignored (not just left untracked) so generic git-hygiene tooling doesn't
+# flag them as forgotten uncommitted work.
+docs/superpowers/specs/
+docs/superpowers/plans/
