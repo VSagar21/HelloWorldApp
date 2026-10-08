@@ -24,5 +24,9 @@ diff_output.txt
 scratch.txt
 dump.txt
 
-# Stack-specific ignores (Python/.NET/Node/etc.) are added once the stack is
-# chosen -- see /factory-init-tech-context.
+# .NET
+bin/
+obj/
+*.user
+.vs/
+TestResults/
