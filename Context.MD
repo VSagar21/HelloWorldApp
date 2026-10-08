@@ -16,7 +16,7 @@ Everything a Run produces: the Greeting followed by a single line feed character
 Not the Greeting alone, which is only the text.
 
 **Run**:
-One start of the Product, from launch until it exits, producing exactly one Output. A Run takes no input; any arguments passed to it are ignored and do not change the Output.
+One start of the Product, from launch until it exits, producing exactly one Output whenever standard output can be written. A Run takes no input; any arguments passed to it are ignored and do not change the Output.
 Not a build or a test session, which may start many Runs.
 
 ### Who uses it
