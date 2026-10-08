@@ -16,7 +16,7 @@ Every later section of this contract is written for the Operating Context stated
 
 ## Overriding Principles
 1. **No third-party NuGet packages in the app project.** The base class library covers everything the Product does; any new runtime dependency requires an ADR.
-2. **The output contract is exact.** The app writes `Hello World` followed by a newline to stdout, writes nothing to stderr, and exits with code 0. Any change to stdout, stderr or the exit code requires an ADR.
+2. **The output contract is exact.** The app writes `Hello World` followed by a single line feed (`\n`, never `\r\n`, on every OS) to stdout, writes nothing to stderr, and exits with code 0. Any change to stdout, stderr or the exit code requires an ADR.
 3. **Builds treat warnings as errors, with nullable reference types enabled.** Every project sets `<TreatWarningsAsErrors>true</TreatWarningsAsErrors>` and `<Nullable>enable</Nullable>`.
 4. **No breaking change to an Overriding Principle without an ADR.** These rules change only through a recorded decision in `docs/adr/`.
 
@@ -56,7 +56,7 @@ The only channel is the terminal. The single output line is the entire user expe
 ## Testing & the ratchet
 > Seeded from the Factory standard and trimmed by recorded decision (below). Full standard: <https://github.com/enateltd/factory-skills/blob/main/docs/testing-and-the-ratchet-standard.md> · the *why*: <https://github.com/enateltd/factory-skills/blob/main/docs/agentic-e2e-testing-principles.md>.
 
-- **Tier 1 only.** One MSTest test runs the built app as a real subprocess and asserts stdout is exactly `Hello World` followed by a newline, stderr is empty, and the exit code is 0. It runs on every commit on Windows, macOS and Linux.
+- **Tier 1 only.** One MSTest test runs the built app as a real subprocess and asserts stdout is exactly the bytes `Hello World\n`, stderr is empty, and the exit code is 0. It runs on every commit on Windows, macOS and Linux.
 - **Assert on observable behaviour, not internal state.**
 - **The ratchet.** Any defect found outside the tests is fixed together with a Tier-1 test that would have caught it.
 - **Trimmed (decision 2026-10-08):** the Factory standard's LLM, Tier 2, Tier 3 and disposable-substrate rules. This Product has no LLM, no external substrate and no deployment; revisit this trim if any of that changes.
