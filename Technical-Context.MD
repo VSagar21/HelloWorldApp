@@ -37,7 +37,7 @@ Every later section of this contract is written for the Operating Context stated
 - Bumping: one PR changes `global.json` or `Directory.Packages.props`, regenerates the lock files, and must pass `ci`.
 
 ## Instrumentation
-No logging framework, metrics or tracing. `Console.WriteLine` to stdout is the Product's only output; writing anything else to stdout or stderr breaks the output contract (Principle 2).
+No logging framework, metrics or tracing. The Output, written with `Console.Out.Write`, is the Product's only output; writing anything else to stdout or stderr breaks the output contract (Principle 2).
 
 ## User Feedback Approach
 The only channel is the terminal. The single output line is the entire user experience: no prompts, colours, banners or notifications. Agent-generated user-facing copy defaults to nothing beyond the output contract.
