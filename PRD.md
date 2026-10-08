@@ -28,7 +28,7 @@ A .NET 10 console application. A Developer starts a Run; the Run writes the Outp
 16. As a Developer, I want the build to treat warnings as errors with nullable reference types enabled, so that code quality issues block the build instead of accumulating.
 17. As a Developer, I want an automated test that starts a real Run and checks the Output byte for byte, so that a regression in the Greeting, line ending, error stream or exit code is caught.
 18. As a Developer, I want an automated test that starts a Run with arguments and checks the Output is unchanged, so that the ignore-arguments rule is enforced.
-19. As a Developer, I want those tests to run on Windows, macOS and Linux, so that a platform-specific difference such as a line ending is caught on the platform where it occurs.
+19. As a Developer, I want those tests to run on Linux in CI, so that a regression is caught without maintaining a multi-platform pipeline.
 20. As a Developer, I want the tests to run on every commit, so that `main` never holds a Product whose Output is wrong.
 
 ## Implementation Decisions
@@ -47,7 +47,7 @@ A .NET 10 console application. A Developer starts a Run; the Run writes the Outp
 - **Two cases:**
   1. A Run with no arguments: standard output is exactly the bytes `Hello World\n`, standard error is empty, exit code is 0.
   2. A Run with arbitrary arguments: the same three assertions hold.
-- **Platform matrix**: both cases run on Windows, macOS and Linux on every commit.
+- **Platform**: both cases run on every commit on the Linux CI agent. They are not run per commit on Windows or macOS (decision 2026-10-08).
 - **The ratchet**: any defect found outside these tests is fixed together with a Tier-1 test that would have caught it.
 - **Prior art**: none — this is the Repo's first code. These tests become the prior art.
 
