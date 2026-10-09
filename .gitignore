@@ -1,0 +1,47 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Scratch / diff dumps — never commit these. Comparison/diff output from an
+# interactive agent session belongs in a scratch dir outside the working
+# tree, never in the checkout (Bug #95668 — cruft reached main via a normal
+# PR merge, undetected, because nothing stopped it at commit time).
+.tmp*
+*.diff
+*.patch
+*.orig
+*.rej
+*_diff.txt
+*_diff.md
+diff.txt
+diff_output.txt
+scratch.txt
+dump.txt
+
+# .NET
+bin/
+obj/
+*.user
+.vs/
+TestResults/
+
+# Spec/Plan docs are transient local artifacts written by /factory-brainstorming and
+# /factory-writing-plans, each of which pushes its own artefact's exact contents
+# directly into the ADO Feature's Custom.Specification /
+# Custom.ImplementationPlan fields on approval — ADO, not git, is the durable
+# copy on this repo.
+# Ignored (not just left untracked) so generic git-hygiene tooling doesn't
+# flag them as forgotten uncommitted work.
+docs/superpowers/specs/
+docs/superpowers/plans/
+
+# STORY.md is the third orchestrator-projected artefact alongside the Spec and
+# Plan: copied from ADO into each Run's checkout, never a tracked file
+# (ADR-ORC-0014 §3; bug #96279).
+STORY.md
