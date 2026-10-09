@@ -40,3 +40,8 @@ TestResults/
 # flag them as forgotten uncommitted work.
 docs/superpowers/specs/
 docs/superpowers/plans/
+
+# STORY.md is the third orchestrator-projected artefact alongside the Spec and
+# Plan: copied from ADO into each Run's checkout, never a tracked file
+# (ADR-ORC-0014 §3; bug #96279).
+STORY.md
