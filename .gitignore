@@ -26,3 +26,11 @@ dump.txt
 
 # Stack-specific ignores (Python/.NET/Node/etc.) are added once the stack is
 # chosen -- see /factory-init-tech-context.
+
+# Orchestrator-projected artefacts — transient local copies, never tracked.
+# The orchestrator projects the Story, Spec and Plan from ADO into each Run's
+# checkout; ADO, not git, is the durable copy. Tracking them dirties the tree
+# and bakes per-Run content into history (ADR-ORC-0014 §3; bugs #96279, #98724).
+STORY.md
+docs/superpowers/specs/
+docs/superpowers/plans/
